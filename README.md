@@ -1,8 +1,7 @@
 # UnseenFrames
 
 Invisible item frames for Paper 26.2. Shift + right-click a placed item frame with shears to hide
-the frame while keeping its item visible. An implementation of the "Invisible frames" feature from
-[wiki.lotus-land.net](https://wiki.lotus-land.net/info/server-functions#невидимые-рамки).
+the frame while keeping its item visible.
 
 ## Features
 
