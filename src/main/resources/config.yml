@@ -1,0 +1,56 @@
+# UnseenFrames: invisible item frames.
+# Shift + right-click a frame with the tool to hide it; the item inside stays visible.
+
+# Item used to toggle a frame's visibility (item key).
+tool: minecraft:shears
+
+# Require sneaking (Shift) while clicking with the tool.
+require-sneak: true
+
+# Durability taken from the tool per toggle. 0 = never damage the tool.
+tool-damage: 1
+
+# An empty hidden frame becomes visible again so it can be found and broken.
+# It hides itself again as soon as an item is placed inside.
+# false = a hidden frame is always invisible, even when empty.
+reveal-when-empty: true
+
+# Plain right-click on a hidden frame does not rotate the item. Rotate with Shift + right-click.
+lock-rotation: true
+
+# Plain right-click on a hidden frame hanging on a chest, barrel, shulker box, furnace, etc.
+# opens that container.
+container-passthrough:
+  enabled: true
+  # Fire a PlayerInteractEvent before opening so region protection
+  # (WorldGuard, GriefPrevention, Lands, ...) and lock plugins can deny access.
+  check-protection: true
+
+# Adopt frames made invisible by another plugin or by commands: on chunk load
+# or first interaction such a frame gets the UnseenFrames flag and follows the same rules.
+adopt-invisible-frames: true
+
+# Sound played on toggle. Empty key = no sound.
+sound:
+  key: minecraft:item.shears.snip
+  volume: 1.0
+  pitch: 1.0
+
+# /unseenframes scan [radius]: highlights hidden frames with particles.
+scan:
+  default-radius: 16
+  max-radius: 64
+  seconds: 6
+
+# Messages in MiniMessage format (https://docs.advntr.dev/minimessage/format).
+# Empty string = do not show.
+messages:
+  # Action bar after a toggle.
+  hidden: "<gray>Frame hidden</gray>"
+  hidden-empty: "<gray>Frame will hide once an item is placed inside</gray>"
+  revealed: "<gray>Frame is visible again</gray>"
+  # Commands. Available placeholders: <count>, <radius>.
+  scan-result: "<gray>Hidden frames within <radius> blocks: <white><count></white></gray>"
+  toggle-no-target: "<red>Look at an item frame</red>"
+  reload-done: "<green>UnseenFrames configuration reloaded</green>"
+  players-only: "<red>This command can only be used by players</red>"

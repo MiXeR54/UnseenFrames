@@ -1,0 +1,16 @@
+name: UnseenFrames
+version: '${version}'
+main: dev.chernykh.unseenFrames.UnseenFrames
+api-version: '26.2'
+load: POSTWORLD
+description: Invisible item frames. Shift + right-click with shears hides a frame while keeping its item visible.
+author: Maxim
+folia-supported: true
+
+permissions:
+  unseenframes.use:
+    description: Hide and reveal item frames with shears
+    default: true
+  unseenframes.admin:
+    description: /unseenframes command (reload, scan, toggle)
+    default: op
