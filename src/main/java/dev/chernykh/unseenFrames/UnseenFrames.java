@@ -22,11 +22,8 @@ import java.util.List;
 
 public final class UnseenFrames extends JavaPlugin {
 
-    /**
-     * Service ID on <a href="https://bstats.org/">bstats.org</a>.
-     * Fill in after registering the plugin; 0 disables metrics.
-     */
-    private static final int BSTATS_SERVICE_ID = 0;
+    /** Service ID on <a href="https://bstats.org/plugin/bukkit/UnseenFrames/33847">bstats.org</a>; 0 disables metrics. */
+    private static final int BSTATS_SERVICE_ID = 33847;
 
     private final boolean folia = detectFolia();
 

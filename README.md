@@ -85,5 +85,7 @@ Accept the EULA in `run/eula.txt` on the first start.
 
 ## bStats
 
-Metrics are enabled once the plugin is registered on [bstats.org](https://bstats.org/):
-put the service ID into `UnseenFrames.BSTATS_SERVICE_ID`. While the ID is `0`, metrics stay disabled.
+The plugin reports anonymous usage statistics to [bStats](https://bstats.org/plugin/bukkit/UnseenFrames/33847)
+(service ID `33847`): server and plugin versions plus four pie charts for `container-passthrough`,
+`reveal-when-empty`, `adopt-invisible-frames` and the configured tool.
+Server owners can turn this off for every plugin at once in `plugins/bStats/config.yml`.
