@@ -1,3 +1,5 @@
+![UnseenFrames - invisible item frames for Paper](assets/banner.png)
+
 # UnseenFrames
 
 Invisible item frames for Paper 26.2. Shift + right-click a placed item frame with shears to hide

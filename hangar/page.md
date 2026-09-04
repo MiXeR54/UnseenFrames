@@ -1,3 +1,5 @@
+![UnseenFrames](https://raw.githubusercontent.com/MiXeR54/UnseenFrames/main/assets/banner.png)
+
 # UnseenFrames
 
 Hide item frames while keeping what is inside them visible. Hold **shears**, **Shift + right-click**
