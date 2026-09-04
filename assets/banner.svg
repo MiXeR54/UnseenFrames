@@ -1,3 +1,6 @@
+<!-- Source of banner.png. Re-render after editing:
+     chrome --headless=new --hide-scrollbars --default-background-color=00000000
+            --window-size=1200,360 --screenshot=assets/banner.png assets/banner.svg -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
   <defs>
     <linearGradient id="fade" x1="0" y1="0" x2="1" y2="1">
