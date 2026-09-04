@@ -87,36 +87,14 @@ Dev server with Paper 26.2 in the `run/` directory:
 
 Accept the EULA in `run/eula.txt` on the first start.
 
+The release process is documented in [RELEASING.md](RELEASING.md).
+
 ## bStats
 
 The plugin reports anonymous usage statistics to [bStats](https://bstats.org/plugin/bukkit/UnseenFrames/33847)
 (service ID `33847`): server and plugin versions plus four pie charts for `container-passthrough`,
 `reveal-when-empty`, `adopt-invisible-frames` and the configured tool.
 Server owners can turn this off for every plugin at once in `plugins/bStats/config.yml`.
-
-## Releasing
-
-Publishing to [Hangar](https://hangar.papermc.io/MiXeR54/UnseenFrames) is done by the Gradle plugin:
-
-```
-./gradlew publishPluginPublicationToHangar
-```
-
-The API token is taken from the `HANGAR_API_TOKEN` environment variable and falls back to the
-git-ignored `pat_hangar` file in the project root; the token needs the `create_version` permission.
-The changelog of the release is the topmost entry of `CHANGELOG.md`.
-
-The Hangar project page lives in `hangar/page.md` and is uploaded separately (needs `edit_page`):
-
-```
-./gradlew syncAllPagesToHangar
-```
-
-Pushing a `v*` tag runs the same task from GitHub Actions with the `HANGAR_API_TOKEN` repository secret,
-so a release is:
-
-1. Bump `version` in `gradle.properties` and add the entry to `CHANGELOG.md`.
-2. `git tag v1.0.0 && git push --tags`.
 
 ## License
 
