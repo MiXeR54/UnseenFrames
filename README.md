@@ -2,6 +2,10 @@
 
 # UnseenFrames
 
+[![Hangar](https://img.shields.io/hangar/dt/UnseenFrames?label=Hangar&color=004ee9)](https://hangar.papermc.io/MiXeR54/UnseenFrames)
+[![bStats Servers](https://img.shields.io/bstats/servers/33847)](https://bstats.org/plugin/bukkit/UnseenFrames/33847)
+[![Paper](https://img.shields.io/badge/Paper-26.2%20%7C%2026.3-blue)](https://papermc.io/)
+
 Invisible item frames for Paper 26.3 and 26.2. Shift + right-click a placed item frame with shears
 to hide the frame while keeping its item visible.
 
