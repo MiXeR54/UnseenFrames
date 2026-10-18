@@ -5,6 +5,13 @@ All notable changes to UnseenFrames are documented in this file. The format foll
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 The topmost entry is published as the Hangar changelog of the release.
 
+## [1.1.0] - 2026-10-18
+
+Support for Paper 26.3.
+
+- Compiled, tested and published against Paper 26.3. No API changes were needed, so the jar keeps
+  loading on 26.2 as well.
+
 ## [1.0.0] - 2026-09-04
 
 First public release for Paper 26.2.

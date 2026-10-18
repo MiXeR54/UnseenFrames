@@ -1,6 +1,7 @@
 name: UnseenFrames
 version: '${version}'
 main: dev.chernykh.unseenFrames.UnseenFrames
+# Oldest supported Paper release; see supportedPaperVersions in build.gradle.kts.
 api-version: '26.2'
 load: POSTWORLD
 description: Invisible item frames. Shift + right-click with shears hides a frame while keeping its item visible.

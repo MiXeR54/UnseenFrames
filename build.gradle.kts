@@ -5,8 +5,12 @@ plugins {
     id("io.papermc.hangar-publish-plugin") version "0.1.4"
 }
 
-// Paper release the plugin is compiled, tested and published against.
-val paperVersion = "26.2"
+// Paper release the plugin is compiled, tested and run against.
+val paperVersion = "26.3"
+
+// Paper releases the plugin is published for. It only uses API that is stable across all of them,
+// so api-version in plugin.yml stays at the oldest one.
+val supportedPaperVersions = listOf("26.2", "26.3")
 
 repositories {
     mavenCentral()
@@ -81,7 +85,7 @@ hangarPublish {
         platforms {
             paper {
                 jar = tasks.shadowJar.flatMap { it.archiveFile }
-                platformVersions = listOf(paperVersion)
+                platformVersions = supportedPaperVersions
             }
         }
         // ./gradlew syncAllPagesToHangar updates the project page from hangar/page.md.

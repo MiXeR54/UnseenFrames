@@ -2,8 +2,8 @@
 
 # UnseenFrames
 
-Invisible item frames for Paper 26.2. Shift + right-click a placed item frame with shears to hide
-the frame while keeping its item visible.
+Invisible item frames for Paper 26.3 and 26.2. Shift + right-click a placed item frame with shears
+to hide the frame while keeping its item visible.
 
 [Download on Hangar](https://hangar.papermc.io/MiXeR54/UnseenFrames) · [Changelog](CHANGELOG.md) · MIT licensed
 
@@ -79,7 +79,7 @@ Requires JDK 25.
 
 The resulting jar is `build/libs/UnseenFrames-<version>.jar` (bStats is relocated inside).
 
-Dev server with Paper 26.2 in the `run/` directory:
+Dev server with Paper 26.3 in the `run/` directory:
 
 ```
 ./gradlew runServer
