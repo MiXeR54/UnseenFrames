@@ -3,13 +3,14 @@
 # UnseenFrames
 
 [![Hangar](https://img.shields.io/hangar/dt/UnseenFrames?label=Hangar&color=004ee9)](https://hangar.papermc.io/MiXeR54/UnseenFrames)
+[![Modrinth](https://img.shields.io/modrinth/dt/Iif9taOX?label=Modrinth&color=00af5c)](https://modrinth.com/plugin/unseenframes)
 [![bStats Servers](https://img.shields.io/bstats/servers/33847)](https://bstats.org/plugin/bukkit/UnseenFrames/33847)
 [![Paper](https://img.shields.io/badge/Paper-26.2%20%7C%2026.3-blue)](https://papermc.io/)
 
 Invisible item frames for Paper 26.3 and 26.2. Shift + right-click a placed item frame with shears
 to hide the frame while keeping its item visible.
 
-[Download on Hangar](https://hangar.papermc.io/MiXeR54/UnseenFrames) · [Changelog](CHANGELOG.md) · MIT licensed
+Download on [Hangar](https://hangar.papermc.io/MiXeR54/UnseenFrames) or [Modrinth](https://modrinth.com/plugin/unseenframes) · [Changelog](CHANGELOG.md) · MIT licensed
 
 ## Features
 

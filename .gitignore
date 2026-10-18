@@ -20,5 +20,6 @@ hs_err_pid*
 # Common working directory
 run
 
-# Hangar API token (kept out of git, read by the publish task)
+# Hangar and Modrinth API tokens (kept out of git, read by the publish tasks)
 /pat_hangar
+/pat_modrinth

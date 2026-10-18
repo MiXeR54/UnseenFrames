@@ -3,6 +3,7 @@ plugins {
     id("com.gradleup.shadow") version "9.6.1"
     id("xyz.jpenilla.run-paper") version "3.1.0"
     id("io.papermc.hangar-publish-plugin") version "0.1.4"
+    id("com.modrinth.minotaur") version "2.10.0"
 }
 
 // Paper release the plugin is compiled, tested and run against.
@@ -69,19 +70,26 @@ tasks {
     }
 }
 
-// ./gradlew publishPluginPublicationToHangar - see README, "Releasing".
+// Body of the topmost "## [x.y.z]" section of CHANGELOG.md, the release notes on Hangar and Modrinth.
+val releaseChangelog = providers.fileContents(layout.projectDirectory.file("CHANGELOG.md")).asText
+    .map { it.substringAfter("\n## ").substringBefore("\n## ").substringAfter("\n").trim() }
+
+// The project page on both sites.
+val projectPage = providers.fileContents(layout.projectDirectory.file("hangar/page.md")).asText
+
+// Publishing tokens are never stored in the repository: CI passes them as environment variables,
+// locally they are read from the git-ignored pat_* files in the project root.
+fun publishToken(env: String, file: String): Provider<String> = providers.environmentVariable(env)
+    .orElse(providers.fileContents(layout.projectDirectory.file(file)).asText.map { it.trim() })
+
+// ./gradlew publishPluginPublicationToHangar - see RELEASING.md.
 hangarPublish {
     publications.register("plugin") {
         id = "UnseenFrames"
         version = project.version as String
         channel = "Release"
-        // The token is never stored in the repository: CI passes HANGAR_API_TOKEN,
-        // locally it is read from the git-ignored pat_hangar file.
-        apiKey = providers.environmentVariable("HANGAR_API_TOKEN")
-            .orElse(providers.fileContents(layout.projectDirectory.file("pat_hangar")).asText.map { it.trim() })
-        // Body of the topmost "## [x.y.z]" section of CHANGELOG.md.
-        changelog = providers.fileContents(layout.projectDirectory.file("CHANGELOG.md")).asText
-            .map { it.substringAfter("\n## ").substringBefore("\n## ").substringAfter("\n").trim() }
+        apiKey = publishToken("HANGAR_API_TOKEN", "pat_hangar")
+        changelog = releaseChangelog
         platforms {
             paper {
                 jar = tasks.shadowJar.flatMap { it.archiveFile }
@@ -90,7 +98,27 @@ hangarPublish {
         }
         // ./gradlew syncAllPagesToHangar updates the project page from hangar/page.md.
         pages {
-            resourcePage(providers.fileContents(layout.projectDirectory.file("hangar/page.md")).asText)
+            resourcePage(projectPage)
         }
     }
+}
+
+// ./gradlew modrinth uploads the jar as a new version, ./gradlew modrinthSyncBody updates the project
+// page from hangar/page.md - see RELEASING.md.
+modrinth {
+    token = publishToken("MODRINTH_TOKEN", "pat_modrinth")
+    projectId = "unseenframes"
+    versionNumber = project.version as String
+    versionName = "UnseenFrames ${project.version}"
+    versionType = "release"
+    uploadFile.set(tasks.shadowJar)
+    gameVersions.addAll(supportedPaperVersions)
+    loaders.addAll("paper", "folia")
+    changelog = releaseChangelog
+    syncBodyFrom = projectPage
+}
+
+// Minotaur reads the project while its tasks run, which the configuration cache does not allow.
+listOf("modrinth", "modrinthSyncBody").forEach { name ->
+    tasks.named(name) { notCompatibleWithConfigurationCache("Minotaur reads the project at execution time") }
 }
